@@ -1,0 +1,6 @@
+node_modules*
+.gitignore
+.prettierignore
+.sass-cache
+index.css.map
+index.pug

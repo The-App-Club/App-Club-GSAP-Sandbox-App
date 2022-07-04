@@ -1,0 +1,53 @@
+$r: 2.5vw;
+$t: 2s;
+
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.wrap {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.item {
+  --m: calc(0.5 * (var(--n) - 1));
+  --abs: max(var(--m) - var(--i), var(--i) - var(--m));
+  padding: $r;
+  animation: a $t infinite;
+  animation-name: grow, melt;
+  animation-delay: calc(var(--abs) / var(--m) *#{$t});
+
+  .wrap:nth-of-type(1) & {
+    animation-fill-mode: backwards;
+  }
+
+  .wrap:nth-of-type(2) & {
+    animation-delay: calc((var(--abs) / var(--m) - 1) *#{$t});
+  }
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(0);
+  }
+  50%,
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes melt {
+  0%,
+  50% {
+    box-shadow: inset 0 0 0 $r;
+  }
+  100% {
+    box-shadow: inset 0 0;
+  }
+}

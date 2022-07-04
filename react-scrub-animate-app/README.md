@@ -1,0 +1,4 @@
+- Reference
+  - [https://splitting.js](https://splitting.js.org/)
+  - [CssToReact](https://staxmanade.com/CssToReact/)
+  - [Timeline fromTo](<https://greensock.com/docs/v3/GSAP/Timeline/fromTo()>)

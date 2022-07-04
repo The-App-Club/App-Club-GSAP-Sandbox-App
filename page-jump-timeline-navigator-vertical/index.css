@@ -1,0 +1,51 @@
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.content {
+  padding: 0 30px 30px 30px;
+}
+
+nav {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  width: 25px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+h2 {
+  position: sticky;
+  top: 0;
+  padding: 5px;
+  background: rgb(243, 195, 107);
+}
+
+section {
+  height: 105vh;
+}
+
+section > p {
+  padding: 10px;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  font-size: 20px;
+  background-color: transparent;
+  color: #fff;
+  padding: 3px 3px;
+  text-align: center;
+  border: 0px;
+  transition: all 0.3s 0s ease-in-out;
+  margin-bottom: 10px;
+}

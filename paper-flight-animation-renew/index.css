@@ -1,0 +1,71 @@
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #9bc8e1;
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    position: relative;
+    width: 80vw;
+    margin: 50vh auto;
+    background: white;
+  }
+
+  .plane {
+    position: absolute;
+    z-index: 10;
+    left: -50px;
+    top: -50px;
+  }
+
+  #trace-layer {
+    fill: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  img {
+    width: 100px;
+    max-width: 100%;
+    display: block;
+  }
+}
+
+@media screen and (min-width: 501px) {
+  .container {
+    position: relative;
+    width: 60vw;
+    margin: 50vh auto;
+    background: white;
+  }
+
+  .plane {
+    position: absolute;
+    z-index: 10;
+    left: 50px;
+    top: -50px;
+  }
+
+  #trace-layer {
+    fill: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  img {
+    width: 100px;
+    max-width: 100%;
+    display: block;
+  }
+}

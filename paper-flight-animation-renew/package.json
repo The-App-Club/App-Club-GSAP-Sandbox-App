@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "serve": "vite preview",
+    "format": "prettier --write \"{,!(node_modules|dist|build)/**/}*.*\""
+  },
+  "devDependencies": {
+    "prettier": "^2.4.1",
+    "vite": "^2.3.0"
+  },
+  "dependencies": {
+    "gsap": "^3.8.0",
+    "scrollmagic": "^2.0.8",
+    "scrollmagic-plugin-gsap": "^1.0.4"
+  }
+}

@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Kosugi&display=swap');
+
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  overflow-y: auto;
+  background: #eee;
+  font-family: 'Kosugi', sans-serif;
+}
+
+section {
+  max-width: 80vw;
+  margin: 0 auto;
+  height: 300vh;
+}
+
+p {
+  padding: 10px;
+}
+
+@media screen and (min-width: 401px) {
+  .arrow {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .arrow.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .arrow::before {
+    display: block;
+    content: 'scroll down';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .arrow > .arrow-indicator {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translateX(-45%) translateY(-50%);
+    width: 30px;
+    height: 0px;
+    animation: arrow 2s ease-in-out infinite;
+  }
+
+  .arrow > .arrow-indicator:nth-child(1) {
+    animation-delay: 1.2s;
+  }
+
+  .arrow > .arrow-indicator:nth-child(2) {
+    animation-delay: 0.8s;
+  }
+
+  .arrow > .arrow-indicator:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  .arrow > .arrow-indicator > span {
+    position: relative;
+    display: block;
+    left: 50%;
+  }
+
+  .arrow > .arrow-indicator > span:before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border: 0;
+    border-top: solid 2px #333;
+    border-right: solid 2px #333;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    box-sizing: border-box;
+  }
+
+  @keyframes arrow {
+    0% {
+      transform: translate3d(0, -50px, 0);
+    }
+    100% {
+      transform: translate3d(0, 50px, 0);
+      opacity: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .arrow {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .arrow.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .arrow::before {
+    display: block;
+    content: 'scroll down';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .arrow > .arrow-indicator {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translateX(-45%) translateY(-50%);
+    width: 30px;
+    height: 0px;
+    animation: arrow 2s ease-in-out infinite;
+  }
+
+  .arrow > .arrow-indicator:nth-child(1) {
+    animation-delay: 1.2s;
+  }
+
+  .arrow > .arrow-indicator:nth-child(2) {
+    animation-delay: 0.8s;
+  }
+
+  .arrow > .arrow-indicator:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  .arrow > .arrow-indicator > span {
+    position: relative;
+    display: block;
+    left: 50%;
+  }
+
+  .arrow > .arrow-indicator > span:before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border: 0;
+    border-top: solid 2px #333;
+    border-right: solid 2px #333;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    box-sizing: border-box;
+  }
+
+  @keyframes arrow {
+    0% {
+      transform: translate3d(0, -50px, 0);
+    }
+    100% {
+      transform: translate3d(0, 50px, 0);
+      opacity: 0;
+    }
+  }
+}

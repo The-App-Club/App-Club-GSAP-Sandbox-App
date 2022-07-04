@@ -1,0 +1,29 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  align-items: center;
+  background: linear-gradient(90deg, rgb(161, 193, 20), rgb(149, 221, 15));
+  color: #222;
+  display: flex;
+  font-size: 80px;
+  font-weight: 800;
+  height: 100vh;
+  justify-content: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.eye-catcher {
+  display: flex;
+  justify-content: center;
+}
+
+span {
+  display: inline-block;
+}

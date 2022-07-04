@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body>
+    <div id="app" class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="swiper-container">
+            <p class="swiper-control">
+              <button type="button" class="btn btn-default btn-sm prev-slide">
+                Prev
+              </button>
+              <button type="button" class="btn btn-default btn-sm next-slide">
+                Next
+              </button>
+            </p>
+            <div class="swiper-wrapper timeline">
+              <div class="swiper-slide">
+                <div class="timestamp">
+                  <span class="date">April 2017</span>
+                </div>
+                <div class="status">
+                  <span>This is Title</span>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="timestamp">
+                  <span class="date">May 2017</span>
+                </div>
+                <div class="status">
+                  <span>This is Second Title</span>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="timestamp">
+                  <span class="date">June 2017</span>
+                </div>
+                <div class="status">
+                  <span>This is Third Title</span>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="timestamp">
+                  <span class="date">July 2017</span>
+                </div>
+                <div class="status">
+                  <span>This is Fourth Title</span>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
