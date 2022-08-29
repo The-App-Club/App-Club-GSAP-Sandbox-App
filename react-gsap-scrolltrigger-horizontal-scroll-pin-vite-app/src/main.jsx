@@ -15,53 +15,65 @@ import {useMemo} from 'react';
 import {MathUtils} from 'three';
 import {useState} from 'react';
 import {useDebouncedCallback} from 'use-debounce';
+import {BebopLottie} from './components/BebopLottie';
 
 const App = () => {
   const scrollerDomRef = useRef(null);
   const scrollingDomRef = useRef(null);
+  const [progress, setProgress] = useState(0);
 
   const slides = useMemo(() => {
     return [
       {
         component: () => {
           return (
-            <div className="flex">
-              <div className="slide-item one">slide 1 left content</div>
-              <div className="slide-item two">slide 1 right content</div>
+            <div className="flex items-center">
+              <h2 className="text-3xl">Slide 1</h2>
             </div>
           );
         },
       },
-      // {
-      //   component: () => {
-      //     return (
-      //       <div className="flex">
-      //         <div className="slide-item one">slide 2 left content</div>
-      //         <div className="slide-item two">slide 2 right content</div>
-      //       </div>
-      //     );
-      //   },
-      // },
-      // {
-      //   component: () => {
-      //     return (
-      //       <div className="flex">
-      //         <div className="slide-item one">slide 3 left content</div>
-      //         <div className="slide-item two">slide 3 right content</div>
-      //       </div>
-      //     );
-      //   },
-      // },
-      // {
-      //   component: () => {
-      //     return (
-      //       <div className="flex">
-      //         <div className="slide-item one">slide 4 left content</div>
-      //         <div className="slide-item two">slide 4 right content</div>
-      //       </div>
-      //     );
-      //   },
-      // },
+      {
+        startProgress: 0.25,
+        endProgress: 0.5,
+        component: ({progress, startProgress, endProgress}) => {
+          return (
+            <div className="flex items-center flex-col justify-center">
+              <h2 className="text-3xl">Slide 2</h2>
+              <BebopLottie
+                progress={progress}
+                startProgress={startProgress}
+                endProgress={endProgress}
+              />
+            </div>
+          );
+        },
+      },
+      {
+        component: () => {
+          return (
+            <div className="flex items-center">
+              <h2 className="text-3xl">Slide 3</h2>
+            </div>
+          );
+        },
+      },
+      {
+        startProgress: 0.75,
+        endProgress: 1.0,
+        component: ({progress, startProgress, endProgress}) => {
+          return (
+            <div className="flex items-center flex-col justify-center">
+              <h2 className="text-3xl">Slide 4</h2>
+              <BebopLottie
+                progress={progress}
+                startProgress={startProgress}
+                endProgress={endProgress}
+              />
+            </div>
+          );
+        },
+      },
     ];
   }, []);
 
@@ -87,8 +99,8 @@ const App = () => {
         invalidateOnRefresh: true,
         markers: true,
         onUpdate: (instance) => {
-          const p = MathUtils.clamp(instance.progress, 0, 1);
-          console.log(p);
+          const progress = MathUtils.clamp(instance.progress, 0, 1);
+          setProgress(progress);
         },
       },
     });
@@ -96,12 +108,6 @@ const App = () => {
     const increment =
       (scrollingDom.scrollWidth - scrollerDomRef.current.clientWidth) /
       (sections.length - 1);
-
-    console.log(
-      scrollingDom.scrollWidth,
-      increment,
-      scrollerDomRef.current.clientWidth
-    );
 
     sections.forEach((section, index) => {
       scrollTL.to(
@@ -130,8 +136,12 @@ const App = () => {
   }, []);
   return (
     <div>
-      <section className="min-h-screen w-full">Scene1</section>
-      <section className="min-h-screen w-full">Scene2</section>
+      <section className="min-h-screen w-full flex items-center justify-center text-3xl">
+        Scene1
+      </section>
+      <section className="min-h-screen w-full flex items-center justify-center text-3xl">
+        Scene2
+      </section>
 
       <section
         ref={scrollerDomRef}
@@ -147,20 +157,15 @@ const App = () => {
           ref={scrollingDomRef}
           className={cx(
             css`
-              /* width: ${slides.length * 300}%; */
               width: ${slides.length * 100}%;
               height: 100%;
               display: flex;
               .slide {
                 align-items: center;
+                justify-content: center;
                 display: inline-flex;
                 width: 100vw;
                 border: 1px solid blue;
-              }
-              .slide-item {
-                display: flex;
-                align-items: center;
-                width: 50%;
               }
             `
           )}
@@ -168,18 +173,28 @@ const App = () => {
           {slides.map((slide, index) => {
             return (
               <div className="slide" key={index}>
-                {slide.component()}
+                {slide.component({
+                  progress,
+                  startProgress: slide.startProgress,
+                  endProgress: slide.endProgress,
+                })}
               </div>
             );
           })}
         </div>
       </section>
 
-      <section className="min-h-screen w-full">Scene3</section>
+      <section className="min-h-screen w-full flex items-center justify-center text-3xl">
+        Scene3
+      </section>
 
-      <section className="min-h-screen w-full">Scene4</section>
+      <section className="min-h-screen w-full flex items-center justify-center text-3xl">
+        Scene4
+      </section>
 
-      <section className="min-h-screen w-full">Scene5</section>
+      <section className="min-h-screen w-full flex items-center justify-center text-3xl">
+        Scene5
+      </section>
     </div>
   );
 };
