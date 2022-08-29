@@ -1,0 +1,2 @@
+- Reference
+  - [horizontal scrolling](https://greensock.com/forums/topic/31259-horizontal-scroll-pinning-scrub/?do=findComment&comment=156805)
