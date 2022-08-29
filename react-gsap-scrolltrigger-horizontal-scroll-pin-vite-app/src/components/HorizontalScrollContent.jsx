@@ -70,6 +70,9 @@ const HorizontalScrollContent = ({isDebug = false}) => {
   const handleResize = useDebouncedCallback((e) => {
     ScrollTrigger.getById('pc-trigger-scroll')?.kill();
     setUpScrollTrigger();
+
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
   }, 500);
 
   const setUpScrollTrigger = () => {
@@ -121,9 +124,8 @@ const HorizontalScrollContent = ({isDebug = false}) => {
   }, []);
 
   useEffect(() => {
-    ScrollTrigger.getById('pc-trigger-scroll')?.kill();
     gsap.registerPlugin(ScrollTrigger);
-    setUpScrollTrigger();
+    handleResize();
     return () => {};
   }, []);
 
@@ -135,6 +137,7 @@ const HorizontalScrollContent = ({isDebug = false}) => {
           position: relative;
           width: 100%;
           min-height: 100vh;
+          min-height: calc(var(--vh, 1vh) * 100);
           overflow: hidden;
         `,
         'viewport scroll'
@@ -161,6 +164,7 @@ const HorizontalScrollContent = ({isDebug = false}) => {
                 justify-content: center;
                 display: flex;
                 min-height: 100vh;
+                min-height: calc(var(--vh, 1vh) * 100);
                 width: 100vw;
                 /* width: 200vw; */
                 /* border: 1px solid blue; */
