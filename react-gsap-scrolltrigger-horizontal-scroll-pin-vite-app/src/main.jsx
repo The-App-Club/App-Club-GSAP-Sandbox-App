@@ -52,7 +52,7 @@ const App = () => {
         Scene2
       </section>
 
-      <HorizontalScrollContent />
+      <HorizontalScrollContent isDebug={false} />
 
       <section className="min-h-screen w-full flex items-center justify-center text-3xl">
         Scene3
